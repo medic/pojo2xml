@@ -1,6 +1,6 @@
 {
   "name": "pojo2xml",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Convert plain old javascript objects (POJOs) to XML.  Fast.",
   "main": "src/index.js",
   "directories": {
