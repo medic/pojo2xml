@@ -1,0 +1,18 @@
+{
+  "name": "pojo2xml",
+  "version": "1.0.0",
+  "description": "Convert plain old javascript objects (POJOs) to XML.  Fast.",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.0"
+  }
+}
