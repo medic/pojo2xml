@@ -1,6 +1,8 @@
 `pojo2xml`
 ==========
 
+Convert Javascript objects to XML strings.
+
 # Installation
 
 ## `npm`
