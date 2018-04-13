@@ -1,7 +1,9 @@
 function pojo2xml(json) {
   var content, val, xml;
 
-  if(Array.isArray(json)) {
+  if(json == null) { // == checks for undefined too
+    return '';
+  } else if(Array.isArray(json)) {
     return json.map(pojo2xml).join('');
   } else if(typeof json === 'object') {
     xml = '';
@@ -16,14 +18,12 @@ function pojo2xml(json) {
       }
     });
     return xml;
-  } else if(json.toString) {
+  } else {
     return json.toString()
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')
         ;
-  } else {
-    return '';
   }
 }
 

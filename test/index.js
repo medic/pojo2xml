@@ -15,6 +15,11 @@ const TEST_DATA = [
 
   { in:'a string', expected:'a string' },
 
+  { in:null, expected:'' },
+  { in:undefined, expected:'' },
+  { in:{ a:null }, expected:'<a/>' },
+  { in:{ a:undefined }, expected:'<a/>' },
+
   { in:{ a:1, b:2 }, expected:'<a>1</a><b>2</b>' },
   { in:{ a:false }, expected:'<a>false</a>' },
   { in:{ root: { fields: [ { idx:1 }, { idx:2 } ] } }, expected:'<root><fields><idx>1</idx><idx>2</idx></fields></root>' },
@@ -26,8 +31,9 @@ const TEST_DATA = [
 
 describe('pojo2xml', function() {
   TEST_DATA.forEach((t, i) => {
-    it(`Should convert #${i} as expected`, function() {
-      assert.equal(json2xml(t.in), t.expected);
+    const expected = t.expected;
+    it(`Should convert #${i} to ${expected}`, function() {
+      assert.equal(json2xml(t.in), expected);
     });
   });
 
