@@ -1,7 +1,7 @@
 `pojo2xml`
 ==========
 
-Convert Javascript objects to XML strings.
+Convert Javascript objects to XML strings.  Fast.
 
 # Installation
 
