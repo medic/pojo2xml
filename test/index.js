@@ -1,4 +1,6 @@
 const assert = require('chai').assert;
+const fs = require('fs');
+const path = require('path');
 
 const json2xml = require('../src/index');
 
@@ -18,4 +20,23 @@ describe('pojo2xml', function() {
       assert.equal(json2xml(t.in), t.expected);
     });
   });
+
+  const ephemeralTestRoot = 'test/data/ephemeral';
+  fs.readdirSync(ephemeralTestRoot)
+    .filter(f => f.endsWith('.xml'))
+    .forEach(xmlTestFile => {
+      it(`should convert data in ${ephemeralTestRoot}/${xmlTestFile} as expected`, function() {
+        // given
+        const jsonTestFile = xmlTestFile.replace(/\.xml$/, '.json');
+        const json = JSON.parse(readFile(ephemeralTestRoot, jsonTestFile));
+        const expectedXml = readFile(ephemeralTestRoot, xmlTestFile);
+
+        // expect
+        assert.equal(json2xml(json), expectedXml);
+      });
+    });
 });
+
+function readFile(...pathParts) {
+  return fs.readFileSync(path.join(...pathParts), { encoding:'utf8' });
+}
