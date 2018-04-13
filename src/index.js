@@ -1,12 +1,16 @@
 function pojo2xml(json) {
+  var content, val, xml;
+
   if(Array.isArray(json)) {
     return json.map(pojo2xml).join('');
   } else if(typeof json === 'object') {
-    var xml = '';
+    xml = '';
     Object.keys(json).forEach(function(k) {
-      var val = json[k];
-      if(val || val === 0) {
-        xml += '<' + k + '>' + pojo2xml(val) + '</' + k + '>';
+      val = json[k];
+      if(val !== undefined && val !== null) {
+        content = pojo2xml(val);
+        if(content === '') xml += '<' + k + '/>';
+        else xml += '<' + k + '>' + content + '</' + k + '>';
       } else {
         xml += '<' + k + '/>';
       }

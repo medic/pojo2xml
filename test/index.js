@@ -6,12 +6,17 @@ const json2xml = require('../src/index');
 
 const TEST_DATA = [
   { in:'', expected:'' },
+
   { in:0, expected:'0' },
   { in:1, expected:'1' },
+
   { in:false, expected:'false' },
   { in:true, expected:'true' },
+
   { in:'a string', expected:'a string' },
+
   { in:{ a:1, b:2 }, expected:'<a>1</a><b>2</b>' },
+  { in:{ a:false }, expected:'<a>false</a>' },
   { in:{ root: { fields: [ { idx:1 }, { idx:2 } ] } }, expected:'<root><fields><idx>1</idx><idx>2</idx></fields></root>' },
 
   // XML special chars
