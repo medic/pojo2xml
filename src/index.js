@@ -20,6 +20,7 @@ function pojo2xml(json) {
     return xml;
   } else {
     return json.toString()
+        .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
         .replace(/"/g, '&quot;')

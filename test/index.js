@@ -27,6 +27,7 @@ const TEST_DATA = [
   // XML special chars
   { in:'<<<>>>', expected:'&lt;&lt;&lt;&gt;&gt;&gt;' },
   { in:'""', expected:'&quot;&quot;' },
+  { in:'&&', expected:'&amp;&amp;' },
 ];
 
 describe('pojo2xml', function() {
