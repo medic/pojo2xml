@@ -13,6 +13,10 @@ const TEST_DATA = [
   { in:'a string', expected:'a string' },
   { in:{ a:1, b:2 }, expected:'<a>1</a><b>2</b>' },
   { in:{ root: { fields: [ { idx:1 }, { idx:2 } ] } }, expected:'<root><fields><idx>1</idx><idx>2</idx></fields></root>' },
+
+  // XML special chars
+  { in:'<<<>>>', expected:'&lt;&lt;&lt;&gt;&gt;&gt;' },
+  { in:'""', expected:'&quot;&quot;' },
 ];
 
 describe('pojo2xml', function() {

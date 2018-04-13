@@ -13,7 +13,11 @@ function pojo2xml(json) {
     });
     return xml;
   } else if(json.toString) {
-    return json.toString();
+    return json.toString()
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        ;
   } else {
     return '';
   }
