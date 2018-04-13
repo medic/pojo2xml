@@ -1,13 +1,14 @@
 {
   "name": "pojo2xml",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert plain old javascript objects (POJOs) to XML.  Fast.",
   "main": "src/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/index.js"
+    "test": "mocha test/index.js",
+    "release": "git push && git tag v$(jq -r .version package.json) && git push --tags && npm publish"
   },
   "author": "",
   "license": "ISC",
