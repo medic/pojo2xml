@@ -9,7 +9,7 @@
   "scripts": {
     "benchmark": "node test/benchmark.js",
     "jshint": "jshint src/*.js test/*.js",
-    "test": "npm run jshint && mocha test/index.js",
+    "test": "npm run jshint && mocha test/*.spec.js",
     "release": "git push && git tag v$(jq -r .version package.json) && git push --tags && npm publish"
   },
   "author": "",
