@@ -36,11 +36,30 @@ const TEST_DATA = [
   { in:'s<p"e>c&i>a"l', expected:'s&lt;p&quot;e&gt;c&amp;i&gt;a&quot;l' },
 ];
 
+const BAD_TEST_DATA = [
+  { 'bad"': true },
+  { 'bad&': true },
+  { 'bad<': true },
+  { 'bad>': true },
+];
+
 describe('pojo2xml', function() {
   TEST_DATA.forEach((t, i) => {
     const expected = t.expected;
     it(`Should convert #${i} to ${expected}`, function() {
       assert.equal(json2xml(t.in), expected);
+    });
+  });
+
+  BAD_TEST_DATA.forEach(input => {
+    it(`Should throw exception for bad input: ${JSON.stringify(input)}`, function() {
+      let caught = false;
+      try {
+        json2xml(input);
+      } catch(e) {
+        caught = true;
+      }
+      if(!caught) assert.fail('Expected exception to be thrown.');
     });
   });
 

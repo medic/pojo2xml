@@ -8,6 +8,8 @@ function pojo2xml(json) {
   } else if(typeof json === 'object') {
     xml = '';
     Object.keys(json).forEach(function(k) {
+      if(/[&<>"]/.test(k)) throw new Error();
+
       val = json[k];
       if(val !== undefined && val !== null) {
         content = pojo2xml(val);
