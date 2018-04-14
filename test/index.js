@@ -17,11 +17,16 @@ const TEST_DATA = [
 
   { in:null, expected:'' },
   { in:undefined, expected:'' },
+  { in:{ a:'' }, expected:'<a/>' },
+  { in:{ a:[''] }, expected:'<a/>' },
   { in:{ a:null }, expected:'<a/>' },
   { in:{ a:undefined }, expected:'<a/>' },
 
   { in:{ a:1, b:2 }, expected:'<a>1</a><b>2</b>' },
   { in:{ a:false }, expected:'<a>false</a>' },
+  { in:{ a:{ b:[] } }, expected:'<a><b/></a>' },
+  { in:{ a:{ b:[''] } }, expected:'<a><b/></a>' },
+  { in:{ a:{ b:['', '', ''] } }, expected:'<a><b/></a>' },
   { in:{ root: { fields: [ { idx:1 }, { idx:2 } ] } }, expected:'<root><fields><idx>1</idx><idx>2</idx></fields></root>' },
 
   // XML special chars
