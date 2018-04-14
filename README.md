@@ -15,5 +15,5 @@ Convert Javascript objects to XML strings.  Fast.
 
 # Usage
 
-	const pojo2xml = require('pojo2xml');
-	const xmlString = pojo2xml(yourJavascriptObjectHere);
+	var pojo2xml = require('pojo2xml');
+	var xmlString = pojo2xml(yourJavascriptObjectHere);
