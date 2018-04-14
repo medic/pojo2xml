@@ -20,11 +20,13 @@ function pojo2xml(json) {
     return xml;
   } else {
     return json.toString()
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        ;
+      .replace(/[&<>"]/g,
+          function(match) {
+            if(match === '"') return '&quot;';
+            if(match === '&') return '&amp;';
+            if(match === '<') return '&lt;';
+            if(match === '>') return '&gt;';
+          });
   }
 }
 
