@@ -31,8 +31,9 @@ const TEST_DATA = [
 
   // XML special chars
   { in:'<<<>>>', expected:'&lt;&lt;&lt;&gt;&gt;&gt;' },
-  { in:'""', expected:'&quot;&quot;' },
-  { in:'&&', expected:'&amp;&amp;' },
+  { in:'""""', expected:'&quot;&quot;&quot;&quot;' },
+  { in:'&&&&', expected:'&amp;&amp;&amp;&amp;' },
+  { in:'s<p"e>c&i>a"l', expected:'s&lt;p&quot;e&gt;c&amp;i&gt;a&quot;l' },
 ];
 
 describe('pojo2xml', function() {
