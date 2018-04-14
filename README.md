@@ -23,3 +23,4 @@ Convert Javascript objects to XML strings.  Fast.
 * XML declaration (e.g. `<?xml version="1.0"?>`)
 * an explicit root node - if the root JS object has more than one property, multiple root elements will be included in the XML
 * CDATA
+* XML attributes
