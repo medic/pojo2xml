@@ -2,7 +2,7 @@ const assert = require('chai').assert;
 const fs = require('fs');
 const path = require('path');
 
-const json2xml = require('../src/index');
+const pojo2xml = require('../src/index');
 
 const TEST_DATA = [
   { in:'', expected:'' },
@@ -47,7 +47,7 @@ describe('pojo2xml', function() {
   TEST_DATA.forEach((t, i) => {
     const expected = t.expected;
     it(`Should convert #${i} to ${expected}`, function() {
-      assert.equal(json2xml(t.in), expected);
+      assert.equal(pojo2xml(t.in), expected);
     });
   });
 
@@ -55,7 +55,7 @@ describe('pojo2xml', function() {
     it(`Should throw exception for bad input: ${JSON.stringify(input)}`, function() {
       let caught = false;
       try {
-        json2xml(input);
+        pojo2xml(input);
       } catch(e) {
         caught = true;
       }
@@ -74,7 +74,7 @@ describe('pojo2xml', function() {
         const expectedXml = readFile(ephemeralTestRoot, xmlTestFile);
 
         // expect
-        assert.equal(json2xml(json), expectedXml);
+        assert.equal(pojo2xml(json), expectedXml);
       });
     });
 });
