@@ -17,7 +17,7 @@ function pojo2xml(json) {
     }
     return xml;
   } else if(typeof json === 'string') {
-    return json.replace(/[&<>"]/g, escapeSpecial);
+    return /[&<>"]/.test(json) ? json.replace(/[&<>"]/g, escapeSpecial) : json;
   } else return json.toString();
 }
 
