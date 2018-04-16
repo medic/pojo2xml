@@ -1,5 +1,5 @@
 function pojo2xml(json) {
-  var content, val, xml;
+  var xml;
 
   if(json == null) { // == checks for undefined too
     return '';
@@ -8,6 +8,8 @@ function pojo2xml(json) {
   } else if(typeof json === 'object') {
     xml = '';
     Object.keys(json).forEach(function(k) {
+      var content, val;
+
       if(/[&<>"]/.test(k)) throw new Error();
 
       val = json[k];
