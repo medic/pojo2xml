@@ -17,12 +17,12 @@ function pojo2xml(json) {
     return xml;
   } else if(typeof json === 'string') {
     return json.replace(/[&<>"]/g,
-          function(match) {
-            if(match === '"') return '&quot;';
-            if(match === '&') return '&amp;';
-            if(match === '<') return '&lt;';
-            if(match === '>') return '&gt;';
-          });
+        function(match) {
+          if(match === '"') return '&quot;';
+          if(match === '&') return '&amp;';
+          if(match === '<') return '&lt;';
+          if(match === '>') return '&gt;';
+        });
   } else return json.toString();
 }
 
