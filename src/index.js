@@ -20,16 +20,15 @@ function pojo2xml(json) {
       }
     });
     return xml;
-  } else {
-    return json.toString()
-      .replace(/[&<>"]/g,
+  } else if(typeof json === 'string') {
+    return json.replace(/[&<>"]/g,
           function(match) {
             if(match === '"') return '&quot;';
             if(match === '&') return '&amp;';
             if(match === '<') return '&lt;';
             if(match === '>') return '&gt;';
           });
-  }
+  } else return json.toString();
 }
 
 module.exports = pojo2xml;
