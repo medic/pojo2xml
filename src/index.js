@@ -9,7 +9,7 @@ function pojo2xml(json) {
     xml = '';
     for(k in json) {
       if(!json.hasOwnProperty(k)) continue;
-      if(/[&<>"]/.test(k)) throw new Error();
+      if(/[^a-zA-Z0-9_:.]/.test(k)) throw new Error('Illegal characters in element name.');
 
       var content = pojo2xml(json[k]);
       if(content === '') xml += '<' + k + '/>';
