@@ -1,5 +1,5 @@
 function pojo2xml(json) {
-  var xml, k;
+  var content, k, xml;
 
   if(json == null) { // == checks for undefined too
     return '';
@@ -11,7 +11,7 @@ function pojo2xml(json) {
       if(!json.hasOwnProperty(k)) continue;
       if(/[^a-zA-Z0-9_:.]/.test(k)) throw new Error('Illegal characters in element name.');
 
-      var content = pojo2xml(json[k]);
+      content = pojo2xml(json[k]);
       if(content === '') xml += '<' + k + '/>';
       else xml += '<' + k + '>' + content + '</' + k + '>';
     }
