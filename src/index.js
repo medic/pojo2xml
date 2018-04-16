@@ -1,5 +1,5 @@
 function pojo2xml(json) {
-  var xml;
+  var xml, k;
 
   if(json == null) { // == checks for undefined too
     return '';
@@ -7,13 +7,14 @@ function pojo2xml(json) {
     return json.map(pojo2xml).join('');
   } else if(typeof json === 'object') {
     xml = '';
-    Object.keys(json).forEach(function(k) {
+    for(k in json) {
+      if(!json.hasOwnProperty(k)) continue;
       if(/[&<>"]/.test(k)) throw new Error();
 
       var content = pojo2xml(json[k]);
       if(content === '') xml += '<' + k + '/>';
       else xml += '<' + k + '>' + content + '</' + k + '>';
-    });
+    }
     return xml;
   } else if(typeof json === 'string') {
     return json.replace(/[&<>"]/g,
