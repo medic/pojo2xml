@@ -17,14 +17,15 @@ function pojo2xml(json) {
     }
     return xml;
   } else if(typeof json === 'string') {
-    return json.replace(/[&<>"]/g,
-        function(match) {
-          if(match === '"') return '&quot;';
-          if(match === '&') return '&amp;';
-          if(match === '<') return '&lt;';
-          if(match === '>') return '&gt;';
-        });
+    return json.replace(/[&<>"]/g, escapeSpecial);
   } else return json.toString();
+}
+
+function escapeSpecial(c) {
+  if(c === '"') return '&quot;';
+  if(c === '&') return '&amp;';
+  if(c === '<') return '&lt;';
+  if(c === '>') return '&gt;';
 }
 
 module.exports = pojo2xml;
