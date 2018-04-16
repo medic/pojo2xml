@@ -8,18 +8,11 @@ function pojo2xml(json) {
   } else if(typeof json === 'object') {
     xml = '';
     Object.keys(json).forEach(function(k) {
-      var content, val;
-
       if(/[&<>"]/.test(k)) throw new Error();
 
-      val = json[k];
-      if(val !== undefined && val !== null) {
-        content = pojo2xml(val);
-        if(content === '') xml += '<' + k + '/>';
-        else xml += '<' + k + '>' + content + '</' + k + '>';
-      } else {
-        xml += '<' + k + '/>';
-      }
+      var content = pojo2xml(json[k]);
+      if(content === '') xml += '<' + k + '/>';
+      else xml += '<' + k + '>' + content + '</' + k + '>';
     });
     return xml;
   } else if(typeof json === 'string') {
