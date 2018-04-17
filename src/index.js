@@ -22,10 +22,10 @@ function pojo2xml(json) {
 }
 
 function escapeSpecial(c) {
-  if(c === '"') return '&quot;';
-  if(c === '&') return '&amp;';
-  if(c === '<') return '&lt;';
-  if(c === '>') return '&gt;';
+  if(c === '"')   return '&quot;';
+  if(c === '&')   return '&amp;';
+  if(c === '<')   return '&lt;';
+  /* c === '>' */ return '&gt;';
 }
 
 module.exports = pojo2xml;
