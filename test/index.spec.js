@@ -44,9 +44,9 @@ const BAD_TEST_DATA = [
 ];
 
 describe('pojo2xml', function() {
-  TEST_DATA.forEach((t, i) => {
+  TEST_DATA.forEach(t => {
     const expected = t.expected;
-    it(`Should convert #${i} to ${expected}`, function() {
+    it(`should convert ${JSON.stringify(t.in)} to ${expected}`, function() {
       assert.equal(pojo2xml(t.in), expected);
     });
   });
