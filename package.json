@@ -1,6 +1,6 @@
 {
   "name": "pojo2xml",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "description": "Convert plain old javascript objects (POJOs) to XML.  Fast.",
   "main": "src/index.js",
   "directories": {
@@ -20,7 +20,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git://github.com/alxndrsn/pojo2xml.git"
+    "url": "git://github.com/medic/pojo2xml.git"
   },
   "devDependencies": {
     "chai": "^4.1.2",
